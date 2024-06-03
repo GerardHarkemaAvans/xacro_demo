@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="blokje" params="suffix x y z scale">
+
+
+  <link name="blokje_link_${suffix}">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="${0.5*scale} ${0.5*scale} ${0.5*scale}" />
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="blokje_joint_${suffix}" type="fixed">
+    <origin xyz="${x} ${y} ${z}" />
+    <parent link="world" />
+    <child link="blokje_link_${suffix}" />
+  </joint>
+
+
+  </xacro:macro>
+</robot>

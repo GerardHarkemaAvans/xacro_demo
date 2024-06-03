@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="xacro_demo_robot">
+
+    <xacro:include filename="$(find xacro_demo)/urdf/blokje.urdf.xacro" />
+
+    <link name = "world"/>
+
+    <xacro:blokje suffix="bl1" x="0.0" y="0.0" z="0.0" scale="1.0"/>
+    <xacro:blokje suffix="bl2" x="1.0" y="0.0" z="0.0" scale="1.0"/>
+    <xacro:blokje suffix="bl3" x="0.0" y="1.0" z="0.0" scale="1.0"/>
+    <xacro:blokje suffix="bl4" x="0.0" y="1.0" z="1.0" scale="0.5"/>
+
+</robot>
