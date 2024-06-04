@@ -3,11 +3,31 @@
 
     <xacro:include filename="$(find xacro_demo)/urdf/blokje.urdf.xacro" />
 
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
     <link name = "world"/>
 
     <xacro:blokje suffix="bl1" x="0.0" y="0.0" z="0.0" scale="1.0"/>
     <xacro:blokje suffix="bl2" x="1.0" y="0.0" z="0.0" scale="1.0"/>
     <xacro:blokje suffix="bl3" x="0.0" y="1.0" z="0.0" scale="1.0"/>
     <xacro:blokje suffix="bl4" x="0.0" y="1.0" z="1.0" scale="0.5"/>
+
+    <link name="mesh">
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="package://xacro_demo/mesh/EiffelTower.STL" scale="0.01 0.01 0.01" />
+            </geometry>      
+            <material name="white"/>
+        </visual>
+    </link>
+
+    <joint name="mesh_to_world" type="fixed">
+        <origin xyz="1.0 1.0 1.0" />
+        <parent link="world" />
+        <child link="mesh" />
+    </joint>
 
 </robot>
